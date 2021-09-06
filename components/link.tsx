@@ -1,5 +1,5 @@
 import { Link as MatLink, LinkProps as MatLinkProps } from '@material-ui/core';
-import { forwardRef } from 'react-transition-group/node_modules/@types/react';
+import { forwardRef } from 'react';
 import NextLink, { LinkProps as NextLinkProps } from 'next/link';
 
 

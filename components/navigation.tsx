@@ -2,6 +2,7 @@ import {
   AppBar,
   BottomNavigation,
   BottomNavigationAction,
+  BottomNavigationActionClassKey,
   IconButton,
   makeStyles,
   Toolbar,
@@ -11,10 +12,12 @@ import {
   HomeOutlined as HomeIcon,
   Menu as MenuIcon,
   MessageOutlined as MessageIcon,
-  PeopleAltOutlined as PeopleIcon,
   PersonOutlined as PersonIcon,
   SearchOutlined as SearchIcon,
 } from '@material-ui/icons';
+import { useRouter } from 'next/router';
+import { ClassNameMap } from '@material-ui/styles';
+
 
 const useStyles = makeStyles(theme => ({
   appBar: {
@@ -23,10 +26,7 @@ const useStyles = makeStyles(theme => ({
     WebkitTextStrokeWidth: '0.5px',
     WebkitTextStrokeColor: 'black',
     [theme.breakpoints.down('sm')]: {
-      display: 'flex',
-      width: 'fit-content',
-      left: 0,
-      right: 'initial',
+      display: 'none',
     }
   },
   bottomNavigation: {
@@ -46,16 +46,29 @@ const useStyles = makeStyles(theme => ({
     },
   },
   icon: {
-    color: 'white',
+    color: 'white !important',
+  },
+  iconOnly: {
+    paddingTop: '0px !important',
+    paddingBottom: '0px !important',
+  },
+  iconSelected: {
+    paddingTop: '0px !important',
+    paddingBottom: '0px !important',
   },
 }));
 
 const Navigation = () => {
   const styles = useStyles();
+  const router = useRouter();
+  const navigationClasses: Partial<ClassNameMap<BottomNavigationActionClassKey>> = {
+    selected: styles.iconSelected,
+    iconOnly: styles.iconOnly,
+  };
 
   return (
     <>
-      <AppBar className={styles.appBar}>
+      <AppBar className={styles.appBar} position="sticky">
         <Toolbar variant="dense">
           <IconButton edge="start" className={styles.menuButton}>
             <MenuIcon />
@@ -65,11 +78,11 @@ const Navigation = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <BottomNavigation className={styles.bottomNavigation}>
-        <BottomNavigationAction className={styles.icon} label="Home" value="home" icon={<HomeIcon />} />
-        <BottomNavigationAction className={styles.icon} label="Search" value="search" icon={<SearchIcon />} />
-        <BottomNavigationAction className={styles.icon} label="Messages" value="messages" icon={<MessageIcon />} />
-        <BottomNavigationAction className={styles.icon} label="Profile" value="profile" icon={<PersonIcon />} />
+      <BottomNavigation value={router.asPath} onChange={(_, v) => router.push(v)} className={styles.bottomNavigation} showLabels={false}>
+        <BottomNavigationAction classes={navigationClasses} className={styles.icon} value="/" icon={<HomeIcon />} />
+        <BottomNavigationAction classes={navigationClasses} className={styles.icon} value="/search" icon={<SearchIcon />} />
+        <BottomNavigationAction classes={navigationClasses} className={styles.icon} value="/messages" icon={<MessageIcon />} />
+        <BottomNavigationAction classes={navigationClasses} className={styles.icon} value="/profile" icon={<PersonIcon />} />
       </BottomNavigation>
     </>
   );

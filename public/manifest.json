@@ -1,0 +1,9 @@
+{
+  "name": "Keylo",
+  "short_name": "Keylo",
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "black",
+  "theme_color": "black",
+  "orientation": "portrait"
+}

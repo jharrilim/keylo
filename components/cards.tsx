@@ -1,19 +1,25 @@
+import type { FC } from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
 import ImageCard from './image-card';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   cards: {
     height: 'calc(100vh - 45px)',
-    maxHeight: 'calc(100vh - 45px)',
-    overflow: 'scroll',
+    overflow: 'auto',
     scrollSnapType: 'y mandatory',
+    scrollSnapStop: 'always',
   }
 }));
 
-const Cards = () => {
+interface CardsProps {
+  className?: string;
+}
+
+const Cards: FC<CardsProps> = ({ className }) => {
   const styles = useStyles();
   return (
-    <Grid container item className={styles.cards}>
+    <Grid container item className={clsx(styles.cards, className)}>
       {Array(9).fill(0).map((_, i) =>
         <Grid container item key={i} justifyContent="center">
           <ImageCard />

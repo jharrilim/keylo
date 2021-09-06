@@ -17,6 +17,7 @@ const Home: NextPage = () => {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
+        <html style={{ overflow: 'hidden' }}></html>
       </Head>
 
       <Grid container item justifyContent="center">

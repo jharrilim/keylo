@@ -9,6 +9,7 @@ import {
   CardActionArea,
   CardMedia,
   makeStyles,
+  Typography,
 } from '@material-ui/core';
 import {
   Skeleton,
@@ -27,6 +28,17 @@ const useStyles = makeStyles(theme => ({
     borderRadius: 0,
     scrollSnapAlign: 'start',
     backgroundColor: 'black',
+    position: 'relative',
+  },
+  description: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    padding: '1em',
+    color: 'white',
+    backgroundColor: 'rgba(0,0,0, 0.4)',
+    border: 'none',
+    maxWidth: '50%'
   },
 }));
 
@@ -44,9 +56,14 @@ const ImageCard = forwardRef((_props, ref) => {
   return (
     <Card ref={ref} className={styles.card}>
       {!!cardUrl ? (
-        <CardActionArea>
-          <CardMedia className={styles.media} image={cardUrl} />
-        </CardActionArea>
+        <>
+          <CardActionArea>
+            <CardMedia className={styles.media} image={cardUrl} />
+          </CardActionArea>
+          <Typography className={styles.description} variant="caption">
+            Omg wooioo!! 🤣🙌😜🤦‍♂️
+          </Typography>
+        </>
       ) : (
         <Skeleton className={styles.media} />
       )}
