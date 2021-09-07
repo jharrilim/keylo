@@ -5,12 +5,8 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import Cards from '../components/cards';
-import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
-  html: {
-    overflow: 'hidden',
-  },
   root: {
     overflow: 'hidden',
     height: '100%',
@@ -20,10 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 const Home: NextPage = () => {
   const styles = useStyles();
-  useEffect(() => {
-    if (typeof window !== 'undefined')
-      window.scrollTo(0,1); // hide address bar on mobile
-  }, []);
+
   return (
     <>
       <Head>

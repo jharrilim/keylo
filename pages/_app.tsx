@@ -13,10 +13,10 @@ import { useEffect } from 'react';
 const useStyles = makeStyles(theme => ({
   main: {
     [theme.breakpoints.down('sm')]: {
-      height: 'calc(100vh - 45px)',
+      height: 'calc(100% - 45px)',
     },
     [theme.breakpoints.up('sm')]: {
-      height: 'calc(100vh - 48px)',
+      height: 'calc(100% - 48px)',
       overflow: 'auto',
     },
   },
