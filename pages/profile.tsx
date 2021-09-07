@@ -9,6 +9,7 @@ import {
 } from '@material-ui/icons';
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,16 +23,21 @@ const useStyles = makeStyles(theme => ({
 
 const ProfilePage: NextPage = () => {
   const styles = useStyles();
+  const router = useRouter();
+  const name = router.asPath === '/profile'
+    ? 'username'
+    : router.asPath.replace('/@/', '');
+
   return (
     <Grid className={styles.root} container item justifyContent="center" direction="column" alignItems="center">
       <Head>
-        <title>Keylo - Profile</title>
-        <meta name="description" content="X's profile on Keylo." key="description" />
+        <title>Keylo - {name}</title>
+        <meta name="description" content={`${name}'s profile on Keylo.`} key="description" />
       </Head>
       <Avatar className={styles.avatar} src="https://i.pravatar.cc/400">
         <PersonIcon />
       </Avatar>
-      <Typography component="h1" variant="h6">@username</Typography>
+      <Typography component="h1" variant="h6">@{name}</Typography>
     </Grid>
   );
 };
