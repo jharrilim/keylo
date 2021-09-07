@@ -1,5 +1,6 @@
 import React from 'react';
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+import Document, { Html, Main, Head, NextScript, DocumentContext } from 'next/document';
+
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import theme from '../theme';
 
@@ -9,7 +10,7 @@ import theme from '../theme';
 export default class Doc extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html>
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />

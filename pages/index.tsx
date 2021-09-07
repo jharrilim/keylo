@@ -2,13 +2,25 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import {
   Grid,
+  makeStyles,
 } from '@material-ui/core';
-
 import Cards from '../components/cards';
 
+const useStyles = makeStyles(theme => ({
+  html: {
+    overflow: 'hidden',
+  },
+  root: {
+    overflow: 'hidden',
+    height: '100%',
+    maxHeight: '100%',
+  },
+}));
+
 const Home: NextPage = () => {
+  const styles = useStyles();
   return (
-    <Grid container>
+    <>
       <Head>
         <title>Keylo</title>
         <meta name="description" content="Community." key="description" />
@@ -17,13 +29,12 @@ const Home: NextPage = () => {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <html style={{ overflow: 'hidden' }}></html>
       </Head>
 
-      <Grid container item justifyContent="center">
+      <Grid className={styles.root} container item justifyContent="center">
         <Cards />
       </Grid>
-    </Grid>
+    </>
   );
 };
 

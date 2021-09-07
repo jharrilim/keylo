@@ -2,17 +2,21 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import {
   CssBaseline,
-  MuiThemeProvider,
+  ThemeProvider,
+  makeStyles,
 } from '@material-ui/core';
 
 import appTheme from '../theme';
 import Navigation from '../components/navigation';
-import { makeStyles } from '@material-ui/core';
+import { useEffect } from 'react';
 
 const useStyles = makeStyles(theme => ({
   main: {
     [theme.breakpoints.down('sm')]: {
-      maxHeight: 'calc(100vh - 45px)',
+      height: 'calc(100vh - 45px)',
+    },
+    [theme.breakpoints.up('sm')]: {
+      height: 'calc(100vh - 48px)',
       overflow: 'auto',
     },
   },
@@ -20,15 +24,22 @@ const useStyles = makeStyles(theme => ({
 
 function MyApp({ Component, pageProps }: AppProps) {
   const styles = useStyles();
-  return <>
-    <CssBaseline />
-    <Navigation />
-    <MuiThemeProvider theme={appTheme}>
+
+  useEffect(() => {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    jssStyles?.parentElement?.removeChild(jssStyles);
+  }, []);
+
+  return (
+    <ThemeProvider theme={appTheme}>
+      <CssBaseline />
+      <Navigation />
       <main className={styles.main}>
         <Component {...pageProps} />
       </main>
-    </MuiThemeProvider>
-  </>;
+    </ThemeProvider>
+  );
 }
 
 export default MyApp;

@@ -6,10 +6,12 @@ import clsx from 'clsx';
 const useStyles = makeStyles(theme => ({
   cards: {
     backgroundColor: 'black',
-    height: 'calc(100vh - 45px)',
+    maxHeight: '100%',
     overflow: 'auto',
-    scrollSnapType: 'y mandatory',
-    scrollSnapStop: 'always',
+    [theme.breakpoints.down('sm')]: {
+      scrollSnapType: 'y mandatory',
+      scrollSnapStop: 'always',
+    },
   }
 }));
 

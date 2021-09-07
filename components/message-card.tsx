@@ -1,5 +1,5 @@
 import { Avatar, Card, CardActionArea, CardHeader, Grid, makeStyles } from '@material-ui/core';
-import { forwardRef, useState } from 'react';
+import { forwardRef } from 'react';
 import faker from 'faker';
 import useSWR from 'swr';
 
@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     width: theme.spacing(5),
     height: theme.spacing(5),
-  }
+  },
 }));
 
 export interface MessageCardProps {
