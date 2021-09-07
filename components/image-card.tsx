@@ -18,8 +18,8 @@ import {
 const useStyles = makeStyles(theme => ({
   media: {
     [theme.breakpoints.down('sm')]: {
-      minWidth: '100vw',
-      minHeight: 'calc(100vh - 45px)',
+      minWidth: '100%',
+      minHeight: '100%',
     },
     minWidth: '360px',
     minHeight: '640px',
