@@ -54,11 +54,11 @@ export interface ImageCardProps {
 
 const ImageCard = forwardRef<HTMLDivElement, ImageCardProps>((_props, ref) => {
   const styles = useStyles();
-  const url = `https://source.unsplash.com/random/1080x1920?nature,people`;
   const [cardUrl, setCardUrl] = useState('');
 
   useEffect(() => {
-    axios.get(url).then(r => {
+    const url = () => `https://source.unsplash.com/random/1080x1920?travel&sig=${Math.floor(Math.random() * 100000)}`;
+    axios.get(url()).then(r => {
       setCardUrl(r.request?.responseURL ?? '');
     });
   }, []);
