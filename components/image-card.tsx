@@ -38,13 +38,17 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     backgroundColor: 'rgba(0,0,0, 0.4)',
     border: 'none',
-    maxWidth: '50%'
+    maxWidth: '50%',
   },
 }));
 
-const ImageCard = forwardRef((_props, ref) => {
+export interface ImageCardProps {
+
+}
+
+const ImageCard = forwardRef<HTMLDivElement, ImageCardProps>((_props, ref) => {
   const styles = useStyles();
-  const url = `https://source.unsplash.com/random/1080x1920?nature`;
+  const url = `https://source.unsplash.com/random/1080x1920?nature,people`;
   const [cardUrl, setCardUrl] = useState('');
 
   useEffect(() => {
