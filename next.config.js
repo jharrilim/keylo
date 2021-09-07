@@ -7,6 +7,9 @@ module.exports = {
         source: '/unsplash/:path*',
         destination: 'https://unsplash.com/photos/:path*' // Proxy to Backend
       }
-    ]
-  }
-}
+    ];
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};
