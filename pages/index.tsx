@@ -5,10 +5,9 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import Cards from '../components/cards';
-
 const useStyles = makeStyles(theme => ({
   root: {
-    overflow: 'hidden',
+    // overflow: 'hidden',
     height: '100%',
     maxHeight: '100%',
   },
