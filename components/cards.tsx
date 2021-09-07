@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
   swiper: {
     height: '100%',
+    width: '100%',
   },
 }));
 

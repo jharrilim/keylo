@@ -29,6 +29,12 @@ const useStyles = makeStyles(theme => ({
     scrollSnapAlign: 'start',
     backgroundColor: 'black',
     position: 'relative',
+    height: '100%',
+    width: '100%',
+  },
+  actionArea: {
+    height: '100%',
+    width: '100%',
   },
   description: {
     position: 'absolute',
@@ -61,7 +67,7 @@ const ImageCard = forwardRef<HTMLDivElement, ImageCardProps>((_props, ref) => {
     <Card ref={ref} className={styles.card}>
       {!!cardUrl ? (
         <>
-          <CardActionArea>
+          <CardActionArea className={styles.actionArea}>
             <CardMedia className={styles.media} image={cardUrl} />
           </CardActionArea>
           <Typography className={styles.description} variant="caption">
