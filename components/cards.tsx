@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   cards: {
+    backgroundColor: 'black',
     height: 'calc(100vh - 45px)',
     overflow: 'auto',
     scrollSnapType: 'y mandatory',

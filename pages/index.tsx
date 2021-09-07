@@ -11,7 +11,7 @@ const Home: NextPage = () => {
     <Grid container>
       <Head>
         <title>Keylo</title>
-        <meta name="description" content="Community." />
+        <meta name="description" content="Community." key="description" />
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="viewport"
