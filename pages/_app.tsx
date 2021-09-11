@@ -8,10 +8,13 @@ import {
 
 import appTheme from '../theme';
 import Navigation from '../components/navigation';
-import { useEffect } from 'react';
+import {
+  useEffect,
+} from 'react';
 
 const useStyles = makeStyles(theme => ({
   main: {
+    overflowY: 'auto',
     [theme.breakpoints.down('sm')]: {
       height: 'calc(100% - 45px)',
     },
