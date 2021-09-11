@@ -1,0 +1,36 @@
+.searchPage {
+  background-color: black;
+  color: white;
+  flex: 1;
+}
+
+.searchBar {
+  background-color: black;
+  padding: 6px;
+}
+
+.searchBarInner {
+  border: none;
+  background-color: rgb(30, 30, 30);
+  flex: 1;
+  border-radius: 12px;
+  padding-left: 8px;
+}
+
+.searchField {
+  background-color: rgb(30, 30, 30);
+  color: rgb(200, 200, 200);
+  padding: 8px;
+  border: none;
+  flex: 1;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.searchField::placeholder {
+  color: rgb(200, 200, 200);
+}
+
+.searchIcon {
+  color: rgb(200, 200, 200);
+}

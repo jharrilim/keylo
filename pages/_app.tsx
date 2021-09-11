@@ -14,7 +14,10 @@ import {
 
 const useStyles = makeStyles(theme => ({
   main: {
+    display: 'flex',
+    flexDirection: 'column',
     overflowY: 'auto',
+    position: 'relative',
     [theme.breakpoints.down('sm')]: {
       height: 'calc(100% - 45px)',
     },
