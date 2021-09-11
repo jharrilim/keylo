@@ -32,6 +32,9 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     paddingBottom: '0.5em',
   },
+  imageListContainer: {
+    padding: '4px',
+  },
 }));
 
 const ProfilePage: NextPage = () => {
@@ -63,7 +66,7 @@ const ProfilePage: NextPage = () => {
           Hello! This is a demo profile bio. Hope you enjoy reading useless quibble!
         </Typography>
       </Grid>
-      <Grid container item>
+      <Grid container item className={styles.imageListContainer}>
         <ImageList cols={4}>
           {Array(12).fill(0).map((_, i) =>
             <ImageListItem key={i}>
