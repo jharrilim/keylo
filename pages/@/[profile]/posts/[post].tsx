@@ -6,3 +6,4 @@ const PostPage: NextPage = () => {
   );
 };
 
+export default PostPage;
