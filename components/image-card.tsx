@@ -69,11 +69,10 @@ const useStyles = makeStyles(theme => ({
   },
   actionBarButton: {
     backgroundColor: 'rgb(240, 240, 240)',
-    padding: '8px',
+    padding: '12px',
     cursor: 'pointer',
-    border: '1px solid white',
     fontSize: '18px',
-    borderRadius: '300px',
+    borderRadius: '50%',
   },
   actionBarFavorite: {
     backgroundColor: 'pink',
