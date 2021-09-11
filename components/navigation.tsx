@@ -21,10 +21,9 @@ import { ClassNameMap } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    backgroundColor: 'transparent',
+    color: 'white',
+    backgroundColor: 'black',
     boxShadow: 'none',
-    WebkitTextStrokeWidth: '0.5px',
-    WebkitTextStrokeColor: 'black',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     }
@@ -41,6 +40,7 @@ const useStyles = makeStyles(theme => ({
     height: '45px',
   },
   menuButton: {
+    color: 'white',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },

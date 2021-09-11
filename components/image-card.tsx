@@ -10,10 +10,17 @@ import {
   CardMedia,
   makeStyles,
   Typography,
+  Avatar,
 } from '@material-ui/core';
 import {
   Skeleton,
 } from '@material-ui/lab';
+import {
+  Comment,
+  Favorite,
+  Reply,
+} from '@material-ui/icons';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   media: {
@@ -46,6 +53,37 @@ const useStyles = makeStyles(theme => ({
     border: 'none',
     maxWidth: '50%',
   },
+  actionBar: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '24px',
+    flexDirection: 'column',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    color: 'white',
+    padding: '1em',
+    backgroundColor: 'rgba(0,0,0, 0.4)',
+    border: 'none',
+  },
+  actionBarButton: {
+    backgroundColor: 'rgb(240, 240, 240)',
+    padding: '8px',
+    cursor: 'pointer',
+    border: '1px solid white',
+    fontSize: '18px',
+    borderRadius: '300px',
+  },
+  actionBarFavorite: {
+    backgroundColor: 'pink',
+  },
+  actionBarShare: {
+    backgroundColor: 'green',
+  },
+  actionBarComment: {
+    backgroundColor: 'cyan',
+  },
 }));
 
 export interface ImageCardProps {
@@ -73,6 +111,12 @@ const ImageCard = forwardRef<HTMLDivElement, ImageCardProps>((_props, ref) => {
           <Typography className={styles.description} variant="caption">
             Omg wooioo!! 🤣🙌😜🤦‍♂️
           </Typography>
+          <div className={styles.actionBar}>
+            <Avatar>J</Avatar>
+            <Favorite className={clsx(styles.actionBarButton, styles.actionBarFavorite)} />
+            <Reply className={clsx(styles.actionBarButton, styles.actionBarShare)} />
+            <Comment className={clsx(styles.actionBarButton, styles.actionBarComment)} />
+          </div>
         </>
       ) : (
         <Skeleton className={styles.media} />
